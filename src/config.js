@@ -1,3 +1,5 @@
+import { normalizeAssetPaths } from './utils/assetPath.js';
+
 const config = {
 	//网页元数据
 	metaData: {
@@ -236,4 +238,4 @@ const config = {
 	statement: ["备案号：XXICP备123456789号", "Copyright © 2025 SuZec"],
 }
 
-export default config
+export default normalizeAssetPaths(config)

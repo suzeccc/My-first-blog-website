@@ -6,12 +6,13 @@
 import { ref, onMounted } from "vue";
 import TypeIt from 'typeit'
 import config from '../config.js';
+import { normalizeAssetPaths } from '../utils/assetPath.js';
 
 const text = ref(null)
 onMounted(() => {
     let configdata = null;
     if(import.meta.env.VITE_CONFIG){
-        configdata = JSON.parse(import.meta.env.VITE_CONFIG);
+        configdata = normalizeAssetPaths(JSON.parse(import.meta.env.VITE_CONFIG));
     }else{
         configdata = config;
     }

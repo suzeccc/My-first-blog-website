@@ -7,6 +7,7 @@ import loader from './components/loader.vue';
 import polarchart from './components/polarchart.vue';
 import config from './config.js';
 import { getCookie } from './utils/cookieUtils.js';
+import { normalizeAssetPaths, withBasePath } from './utils/assetPath.js';
 import { setMeta,getFormattedTime,getFormattedDate,dataConsole } from './utils/common.js';
 import { useDisplay } from 'vuetify'
 
@@ -74,7 +75,7 @@ export default {
   },
   async mounted() {
     if(import.meta.env.VITE_CONFIG){
-      this.configdata = JSON.parse(import.meta.env.VITE_CONFIG);
+      this.configdata = normalizeAssetPaths(JSON.parse(import.meta.env.VITE_CONFIG));
     }
     this.projectcards = this.configdata.projectcards;this.socialPlatformIcons = this.configdata.socialPlatformIcons;
     this.personalizedtags = this.configdata.tags;
@@ -88,8 +89,8 @@ export default {
     //异步等待背景壁纸包括视频壁纸加载完成后再显示页面
     const loadImage = () => {
         const imageUrls = [
-          config.avatar,
-          ...config.projectcards.map(item => item.img)
+          this.configdata.avatar,
+          ...this.configdata.projectcards.map(item => item.img)
         ];
         return new Promise((resolve, reject) => {
           const imagePromises = imageUrls.map((url) => {
@@ -299,7 +300,7 @@ export default {
         console.log('用户交互完成，已取消静音');
       }
     },
-    getCookie,setMeta,getFormattedTime,getFormattedDate,dataConsole,
+    getCookie,setMeta,getFormattedTime,getFormattedDate,dataConsole,withBasePath,
 
     // 随机选择壁纸的方法
     getRandomWallpaper(type, device) {
@@ -356,7 +357,7 @@ export default {
         root.style.setProperty('--leleo-blur', `${this.configdata.blur}px`);
       }
   
-      let leleodatabackground = this.getCookie("leleodatabackground");
+      let leleodatabackground = normalizeAssetPaths(this.getCookie("leleodatabackground"));
       const { xs } = useDisplay();
       if(leleodatabackground){
         // 检查是否存在移动端和PC端的配置

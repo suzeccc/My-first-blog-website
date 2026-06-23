@@ -8,6 +8,12 @@
 </div>
 </template> 
 
+<script setup>
+import { withBasePath } from '../utils/assetPath.js';
+
+const loaderBackground = `url("${withBasePath('/img/loader.svg')}")`;
+</script>
+
 <style scoped>
 /* From Uiverse.io by Nawsome */ 
 .spinner:before {
@@ -36,7 +42,7 @@
   perspective-origin: 50% 50%;
   perspective: 340px;
   background-size: 10em 10em;
-  background-image: url(/img/loader.svg);
+  background-image: v-bind(loaderBackground);
 }
 /* sitNSpin.less */
 @keyframes rotateBefore {

@@ -5,6 +5,7 @@
 <script>
 import { Chart, registerables } from 'chart.js';
 import config from '../config.js';
+import { normalizeAssetPaths } from '../utils/assetPath.js';
 
 Chart.register(...registerables);
 
@@ -19,7 +20,7 @@ export default {
   },
   mounted() {
     if(import.meta.env.VITE_CONFIG){
-        this.configdata = JSON.parse(import.meta.env.VITE_CONFIG);
+        this.configdata = normalizeAssetPaths(JSON.parse(import.meta.env.VITE_CONFIG));
     }
     this.skills = this.configdata.polarChart.skills;
     this.skillPoints = this.configdata.polarChart.skillPoints;
