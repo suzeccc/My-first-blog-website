@@ -25,7 +25,7 @@
     </video>
 
     <!-- Global fixed player wrapper (player + slide-down playlist under it) -->
-    <div class="global-player-wrapper" @mouseenter="!xs && musicplayershow(1)" @mouseleave="!xs && musicplayershow(0)" @click="xs && musicplayershowToggle()">
+    <div class="global-player-wrapper" @mouseenter="!xs && musicplayershow(1)" @mouseleave="!xs && musicplayershow(0)" @click="xs && showMusicPlaylist()">
       <v-card class="musicplayer" variant="tonal">
         <div v-if="audioLoading" class="loading-spinner">
           <v-progress-circular indeterminate></v-progress-circular>

@@ -206,12 +206,12 @@ const config = {
 			},
 			{
 				"title": "椿",
-				"preview": "/img/wallpaper/dynamic-mobile/椿/Wallpaper.Cut.00'01-00'03.webm",
+				"preview": "/img/wallpaper/dynamic-mobile/椿/Wallpaper.Cut.00'00-00'13.CUT.00'00-00'02.mp4",
 				"url": "/img/wallpaper/dynamic-mobile/椿/Wallpaper.Cut.00'00-00'13.webm"
 			},
 			{
 				"title": "kuroha",
-				"preview": "/img/wallpaper/dynamic-mobile/kuroha/Wallpaper.Cut.00'00-00'02.webm",
+				"preview": "/img/wallpaper/dynamic-mobile/kuroha/Wallpaper.Cut.00'00-00'05.CUT.00'00-00'02.mp4",
 				"url": "/img/wallpaper/dynamic-mobile/kuroha/Wallpaper.Cut.00'00-00'05.webm"
 			},
 		],

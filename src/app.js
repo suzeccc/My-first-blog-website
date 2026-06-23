@@ -505,6 +505,10 @@ export default {
         this.ismusicplayer = !this.ismusicplayer;
     },
     
+    showMusicPlaylist() {
+        this.ismusicplayer = true;
+    },
+    
     handleGlobalClick(event) {
       // 在移动端，如果播放列表是显示状态，且点击的不是播放器或播放列表本身，则关闭播放列表
       if (this.xs && this.ismusicplayer) {
